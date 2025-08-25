@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <NavBar text={"Tabaquería Rodriguez"} bg="rgb(65, 86, 248)" />
+      <NavBar text={"Tabaquería Rodriguez"} bg="rgba(182, 18, 174, 0.63)" />
       <ItemListContainer x="Bienvenido a Tabaquería Rodriguez" />
     </>
   );

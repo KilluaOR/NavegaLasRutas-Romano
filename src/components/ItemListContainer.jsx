@@ -1,4 +1,3 @@
-// src/components/ItemListContainer.jsx
 function ItemListContainer({ x }) {
   return (
     <div style={{ padding: "20px", textAlign: "center" }}>
