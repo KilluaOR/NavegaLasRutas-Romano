@@ -1,6 +1,4 @@
-function CartWidget() {
-  return <p style={{ marginRight: "30px" }}>🛒3</p>;
-}
+import CartWidget from "./CartWidget";
 
 function NavBar({ text, bg }) {
   return (
