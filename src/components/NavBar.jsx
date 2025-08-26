@@ -19,12 +19,15 @@ function NavBar({ text, bg }) {
         color: "white",
       }}
     >
-      <h1 style={{ padding: "15px", fontSize: "15px" }}>{text}</h1>
+      <h1 style={{ padding: "15px", fontSize: "20px", fontStyle: "italic" }}>
+        {text}
+      </h1>
       <ul
         style={{
           display: "flex",
           flexDirection: "row",
           listStyle: "none",
+          marginTop: "5px",
           padding: 0,
         }}
       >
