@@ -1,20 +1,61 @@
-function ItemListContainer({ x }) {
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getProducts, getProductsByCategory } from "../data/products";
+import ItemList from "./ItemList";
+
+function ItemListContainer({ greeting = "Bienvenido a Tabaquería Rodriguez" }) {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { category } = useParams();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        let productsData;
+        if (category) {
+          productsData = await getProductsByCategory(category);
+        } else {
+          productsData = await getProducts();
+        }
+
+        setProducts(productsData);
+      } catch (err) {
+        setError(err.message);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [category]);
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Cargando productos...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error-container">
+        <h2>Error</h2>
+        <p>{error}</p>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
-      <h2>{x}</h2>
-      {/* <div className="card" style="width: 18rem;">
-        <img src="..." className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card’s content.
-          </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
-        </div>
-      </div> */}
+    <div className="item-list-container">
+      <h2 className="greeting">{greeting}</h2>
+      <ItemList products={products} />
     </div>
   );
 }
