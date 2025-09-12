@@ -1,5 +1,4 @@
-// products.js
-const API_URL = "https://68a3b19bc123272fb9b039fa.mockapi.io/api/tab1";
+const API_URL = "https://68a3b19bc123272fb9b039fa.mockapi.io/api/tab1/products";
 
 // Trae todos los productos
 export const getProducts = async () => {
@@ -7,7 +6,10 @@ export const getProducts = async () => {
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    // Asegura que siempre sea array
+    // 👀 Debug: ver qué devuelve la API
+    console.log("getProducts response:", data);
+
+    // Si es array, lo devolvemos, si no, devolvemos []
     return Array.isArray(data) ? data : [];
   } catch (err) {
     console.error("Error en getProducts:", err);
@@ -15,17 +17,31 @@ export const getProducts = async () => {
   }
 };
 
-// Trae productos filtrados por categoría
+// Trae productos por categoría
 export const getProductsByCategory = async (category) => {
   try {
     const res = await fetch(`${API_URL}?category=${category}`);
     const data = await res.json();
 
-    // Asegura que siempre sea array
+    console.log("getProductsByCategory response:", data);
+
     return Array.isArray(data) ? data : [];
   } catch (err) {
     console.error("Error en getProductsByCategory:", err);
     return [];
+  }
+};
+// Obtener un producto por ID
+export const getProductById = async (id) => {
+  try {
+    const res = await fetch(`${API_URL}/${id}`);
+    const data = await res.json();
+
+    console.log("getProductById →", data); // 👀 debug
+    return data;
+  } catch (err) {
+    console.error("Error en getProductById:", err);
+    return null;
   }
 };
 
