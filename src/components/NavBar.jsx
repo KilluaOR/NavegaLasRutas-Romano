@@ -6,39 +6,8 @@ function NavBar({
   bg = "rgba(157, 36, 151, 0.83)",
 }) {
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        listStyle: "none",
-        position: "fixed",
-        bottom: "20px",
-        left: "50%",
-        transform: "translateX(-50%)",
-        borderRadius: "30px",
-        backgroundColor: bg,
-        color: "white",
-        zIndex: 1000,
-        minWidth: "280px",
-        maxWidth: "400px",
-        width: "auto",
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
-        gap: "8px",
-      }}
-    >
-      <Link
-        to="/"
-        className="nav-link"
-        style={{
-          textDecoration: "none",
-          color: "white",
-          display: "flex",
-          alignItems: "center",
-          padding: "8px",
-          borderRadius: "50%",
-        }}
-      >
+    <nav className="nav-bar">
+      <Link to="/" className="nav-link">
         <svg
           width="20"
           height="20"
@@ -66,18 +35,7 @@ function NavBar({
         </svg>
       </Link>
 
-      <Link
-        to="/category/tabaco-armar"
-        className="nav-link"
-        style={{
-          color: "white",
-          textDecoration: "none",
-          display: "flex",
-          alignItems: "center",
-          padding: "8px",
-          borderRadius: "50%",
-        }}
-      >
+      <Link to="/category/tabaco-armar" className="nav-link">
         <svg
           width="20"
           height="20"
@@ -114,18 +72,7 @@ function NavBar({
         </svg>
       </Link>
 
-      <Link
-        to="/category/tabaco-pipa"
-        className="nav-link"
-        style={{
-          color: "white",
-          textDecoration: "none",
-          display: "flex",
-          alignItems: "center",
-          padding: "8px",
-          borderRadius: "50%",
-        }}
-      >
+      <Link to="/category/tabaco-pipa" className="nav-link">
         <svg
           width="20"
           height="20"
@@ -153,18 +100,7 @@ function NavBar({
         </svg>
       </Link>
 
-      <Link
-        to="/category/accesorios"
-        className="nav-link"
-        style={{
-          color: "white",
-          textDecoration: "none",
-          display: "flex",
-          alignItems: "center",
-          padding: "8px",
-          borderRadius: "50%",
-        }}
-      >
+      <Link to="/category/accesorios" className="nav-link">
         <svg
           width="20"
           height="20"
