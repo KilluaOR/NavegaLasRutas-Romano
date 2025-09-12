@@ -1,13 +1,6 @@
 function CartWidget() {
   return (
-    <div
-      className="nav-link"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "4px",
-      }}
-    >
+    <div className="nav-cart">
       <svg
         width="20"
         height="20"
@@ -28,9 +21,7 @@ function CartWidget() {
           ></path>
         </g>
       </svg>
-      <span style={{ color: "white", fontSize: "12px", fontWeight: "600" }}>
-        3
-      </span>
+      <span className="cart-span">3</span>
     </div>
   );
 }

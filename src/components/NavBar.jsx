@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
-function NavBar({
-  // text = "Tabaquería Rodriguez",
-  bg = "rgba(157, 36, 151, 0.83)",
-}) {
+function NavBar({}) {
   return (
     <nav className="nav-bar">
       <Link to="/" className="nav-link">

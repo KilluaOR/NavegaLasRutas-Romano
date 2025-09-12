@@ -1,0 +1,10 @@
+.nav-cart {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cart-span {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
