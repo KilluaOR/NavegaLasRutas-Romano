@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <HashRouter>
         <div className="app">
           <NavBar />
 
@@ -28,7 +28,7 @@ function App() {
             </Routes>
           </main>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </CartProvider>
   );
 }
