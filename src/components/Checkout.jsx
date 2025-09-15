@@ -27,22 +27,22 @@ function Checkout() {
             >
               <div className="flex items-center space-x-4">
                 <img
-                  src={item.imagen}
-                  alt={item.nombre}
+                  src={item.image}
+                  alt={item.name}
                   className="w-16 h-20 object-cover rounded"
                 />
                 <div>
-                  <h3 className="text-white font-medium">{item.nombre}</h3>
+                  <h3 className="text-white font-medium">{item.name}</h3>
                   <p className="text-gray-400 text-sm">
                     Cantidad: {item.quantity}
                   </p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-white">{item.precio}</p>
+                <p className="text-white">{item.price}</p>
                 <p className="text-gray-400 text-sm">
                   Total: $
-                  {parseInt(item.precio.replace(/[^0-9]/g, "")) * item.quantity}
+                  {parseInt(item.price.replace(/[^0-9]/g, "")) * item.quantity}
                 </p>
               </div>
             </div>

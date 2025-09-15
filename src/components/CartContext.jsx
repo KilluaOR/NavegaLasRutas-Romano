@@ -40,7 +40,7 @@ export const CartProvider = ({ children }) => {
     const parsePrice = (priceString) =>
       parseInt(priceString.replace(/[^0-9]/g, ""));
     return cart.reduce(
-      (total, item) => total + parsePrice(item.precio) * item.quantity,
+      (total, item) => total + parsePrice(item.price) * item.quantity,
       0
     );
   };

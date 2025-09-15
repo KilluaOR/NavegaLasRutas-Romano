@@ -31,7 +31,7 @@ function ItemDetail({ product }) {
           </p>
         </div>
         <div className="item-detail-actions">
-          <Counter />
+          <Counter product={product} />
         </div>
       </div>
     </div>
