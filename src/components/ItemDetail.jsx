@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Counter from "./ItemCount";
 
 function ItemDetail({ product }) {
   if (!product) {
@@ -30,10 +31,7 @@ function ItemDetail({ product }) {
           </p>
         </div>
         <div className="item-detail-actions">
-          <button className="btn btn-primary">Agregar al Carrito</button>
-          <Link to="/" className="btn btn-secondary">
-            Volver al catálogo
-          </Link>
+          <Counter />
         </div>
       </div>
     </div>
