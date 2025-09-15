@@ -38,4 +38,4 @@ function Counter({ product }) {
     </div>
   );
 }
-export default Counter;
+export default ItemCount;

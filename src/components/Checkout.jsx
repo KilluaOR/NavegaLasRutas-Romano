@@ -39,7 +39,7 @@ function Checkout() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-white">{item.price}</p>
+                <p className="text-white">Precio del item: ${item.price}</p>
                 <p className="text-gray-400 text-sm">
                   Total: $
                   {parseInt(item.price.replace(/[^0-9]/g, "")) * item.quantity}

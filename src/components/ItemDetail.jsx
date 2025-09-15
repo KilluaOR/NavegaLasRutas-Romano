@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Counter from "./ItemCount";
+import ItemCount from "./ItemCount";
 
 function ItemDetail({ product }) {
   if (!product) {
@@ -31,7 +31,7 @@ function ItemDetail({ product }) {
           </p>
         </div>
         <div className="item-detail-actions">
-          <Counter product={product} />
+          <ItemCount product={product} />
         </div>
       </div>
     </div>
