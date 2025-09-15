@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 
-function Counter({ product }) {
+function ItemCount({ product }) {
   const [count, setCount] = useState(1);
   const { addItem } = useCart();
 
