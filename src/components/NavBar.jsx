@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 function NavBar({}) {
   return (
     <nav className="nav-bar">
-      <Link to="/" className="nav-link">
+      <NavLink to="/" className="nav-link">
         <svg
           width="20"
           height="20"
@@ -30,9 +30,9 @@ function NavBar({}) {
             ></path>
           </g>
         </svg>
-      </Link>
+      </NavLink>
 
-      <Link to="/category/tabaco-armar" className="nav-link">
+      <NavLink to="/category/tabaco-armar" className="nav-link">
         <svg
           width="20"
           height="20"
@@ -67,9 +67,9 @@ function NavBar({}) {
             </g>
           </g>
         </svg>
-      </Link>
+      </NavLink>
 
-      <Link to="/category/tabaco-pipa" className="nav-link">
+      <NavLink to="/category/tabaco-pipa" className="nav-link">
         <svg
           width="20"
           height="20"
@@ -95,9 +95,9 @@ function NavBar({}) {
             </g>
           </g>
         </svg>
-      </Link>
+      </NavLink>
 
-      <Link to="/category/accesorios" className="nav-link">
+      <NavLink to="/category/accesorios" className="nav-link">
         <svg
           width="20"
           height="20"
@@ -122,7 +122,7 @@ function NavBar({}) {
             </g>
           </g>
         </svg>
-      </Link>
+      </NavLink>
 
       <CartWidget />
     </nav>
