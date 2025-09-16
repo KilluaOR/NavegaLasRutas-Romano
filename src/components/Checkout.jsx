@@ -1,4 +1,4 @@
-import { useCart } from "../context/CartContext";
+import { useCart } from "./CartContext";
 import { useState } from "react";
 
 function Checkout() {
