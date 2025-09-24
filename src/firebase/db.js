@@ -1,57 +1,57 @@
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { app } from "./config";
 
-const querySnapshot = await getDocs(collection(db, "products"));
-querySnapshot.forEach((doc) => {
-  console.log(doc.id, " => ", doc.data());
-});
-
 const db = getFirestore(app);
 
 export const getProducts = async () => {
-  await getDocs(collection(db, "products"));
+  const querySnapshot = await getDocs(collection(db, "products"));
+  const products = [];
+
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data());
+    products.push({ ...doc.data(), id: doc.id });
   });
-  //   try {
-  //     const res = await fetch(API_URL);
-  //     const data = await res.json();
-
-  //     console.log("getProducts response:", data);
-
-  //     return Array.isArray(data) ? data : [];
-  //   } catch (err) {
-  //     console.error("Error en getProducts:", err);
-  //     return [];
-  //   }
+  return products;
 };
 
-export const getProductsByCategory = async (category) => {
-  await getDocs(collection(db, "products"));
-  querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
-  });
-  //   try {
-  //     const res = await fetch(`${API_URL}?category=${category}`);
-  //     const data = await res.json();
+// export const getProductsByCategory = async (category) => {
+//   await getDocs(collection(db, "products"));
+//   querySnapshot.forEach((doc) => {
+//     console.log(doc.id, " => ", doc.data());
+//   });
+// };
+// export const getProductById = async (id) => {
+// try {
+//   const res = await fetch(`${API_URL}/${id}`);
+//   const data = await res.json();
+//   console.log("getProductById →", data);
+//   return data;
+// } catch (err) {
+//   console.error("Error en getProductById:", err);
+//   return null;
+// }
+// };
 
-  //     console.log("getProductsByCategory response:", data);
+//   try {
+//     const res = await fetch(API_URL);
+//     const data = await res.json();
 
-  //     return Array.isArray(data) ? data : [];
-  //   } catch (err) {
-  //     console.error("Error en getProductsByCategory:", err);
-  //     return [];
-  //   }
-};
-export const getProductById = async (id) => {
-  try {
-    const res = await fetch(`${API_URL}/${id}`);
-    const data = await res.json();
+//     console.log("getProducts response:", data);
 
-    console.log("getProductById →", data);
-    return data;
-  } catch (err) {
-    console.error("Error en getProductById:", err);
-    return null;
-  }
-};
+//     return Array.isArray(data) ? data : [];
+//   } catch (err) {
+//     console.error("Error en getProducts:", err);
+//     return [];
+//   }
+
+//   try {
+//     const res = await fetch(`${API_URL}?category=${category}`);
+//     const data = await res.json();
+
+//     console.log("getProductsByCategory response:", data);
+
+//     return Array.isArray(data) ? data : [];
+//   } catch (err) {
+//     console.error("Error en getProductsByCategory:", err);
+//     return [];
+//   }
