@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "./Products";
+import { getProducts } from "../firebase/db";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
@@ -14,7 +14,7 @@ function ItemDetailContainer() {
       try {
         setLoading(true);
         setError(null);
-        const productData = await getProductById(id);
+        const productData = await getProducts(id);
         setProduct(productData);
       } catch (err) {
         setError(err.message);

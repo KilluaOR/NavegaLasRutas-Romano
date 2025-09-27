@@ -8,18 +8,20 @@ export const getProducts = async () => {
   const products = [];
 
   querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
     products.push({ ...doc.data(), id: doc.id });
   });
   return products;
 };
 
-// export const getProductsByCategory = async (category) => {
-//   await getDocs(collection(db, "products"));
-//   querySnapshot.forEach((doc) => {
-//     console.log(doc.id, " => ", doc.data());
-//   });
-// };
+export const getProductsByCategory = async () => {
+  const querySnapshot = await getDocs(collection(db, ""));
+  const products = [];
+
+  querySnapshot.forEach((doc) => {
+    products.push({ ...doc.data(), id: doc.id });
+  });
+  return products;
+};
 // export const getProductById = async (id) => {
 // try {
 //   const res = await fetch(`${API_URL}/${id}`);
