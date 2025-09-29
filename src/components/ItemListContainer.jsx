@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts /*, getProductsByCategory*/ } from "../firebase/db";
+import { getProducts, getProductsByCategory } from "../firebase/db";
 import ItemList from "./ItemList";
 
 function ItemListContainer({ greeting = "Bienvenido a Tabaquería Rodriguez" }) {
@@ -10,29 +10,35 @@ function ItemListContainer({ greeting = "Bienvenido a Tabaquería Rodriguez" }) 
   const { category } = useParams();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        let productsData;
-        if (category) {
-          productsData = await getProductsByCategory(category);
-        } else {
-          productsData = await getProducts();
-        }
-
-        setProducts(productsData);
-      } catch (err) {
-        setError(err.message);
-        setProducts([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
+    if (category) {
+      getProductsByCategory(category).then((data) => setProducts(data));
+    } else {
+      getProducts().then((data) => setProducts(data));
+    }
   }, [category]);
+  //   const fetchProducts = async () => {
+  //     try {
+  //       setLoading(true);
+  //       setError(null);
+
+  //       let productsData;
+  //       if (category) {
+  //         productsData = await getProductsByCategory(category);
+  //       } else {
+  //         productsData = await getProducts();
+  //       }
+
+  //       setProducts(productsData);
+  //     } catch (err) {
+  //       setError(err.message);
+  //       setProducts([]);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchProducts();
+  // }, [category]);
 
   if (loading) {
     return (

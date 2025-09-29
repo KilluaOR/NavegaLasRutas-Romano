@@ -1,4 +1,3 @@
-//lo agregué para ir avanzando, todavía debo trabajar en los styles y la predisposicion de los archivos para la entrega final
 import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();

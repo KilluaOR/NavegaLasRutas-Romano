@@ -1,4 +1,10 @@
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { app } from "./config";
 
 const db = getFirestore(app);
@@ -12,10 +18,23 @@ export const getProducts = async () => {
   });
   return products;
 };
+export const getCategories = async () => {
+  const querySnapshot = await getDocs(collection(db, "categories"));
+  const categories = [];
 
-export const getProductsByCategory = async () => {
-  const querySnapshot = await getDocs(collection(db, ""));
+  querySnapshot.forEach((doc) => {
+    categories.push({ ...doc.data(), id: doc.id });
+  });
+  return categories;
+};
+
+export const getProductsByCategory = async (category) => {
+  const accesoriosQuery = query(
+    collection(db, "products"),
+    where("category", "==", category)
+  );
   const products = [];
+  const querySnapshot = await getDocs(accesoriosQuery);
 
   querySnapshot.forEach((doc) => {
     products.push({ ...doc.data(), id: doc.id });

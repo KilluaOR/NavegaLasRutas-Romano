@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
-function NavBar({}) {
+function NavBar({ categories }) {
   return (
     <nav className="nav-bar">
       <NavLink to="/" className="nav-link">
