@@ -1,7 +1,7 @@
 import ItemCard from "./ItemCard";
 
-function ItemList({ products }) {
-  if (!products || products.length === 0) {
+function ItemList({ product }) {
+  if (!product || product.length === 0) {
     return (
       <div className="no-products">
         <p>No se encontraron productos.</p>
@@ -11,7 +11,7 @@ function ItemList({ products }) {
 
   return (
     <div className="item-list">
-      {products.map((product) => (
+      {product.map((product) => (
         <ItemCard key={product.id} product={product} />
       ))}
     </div>

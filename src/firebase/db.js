@@ -45,47 +45,11 @@ export const getProductsByCategory = async (category) => {
 };
 
 export const getProductById = async (id) => {
-  const docRef = doc(db, "products", "id");
+  const docRef = doc(db, "products", id);
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
     return { ...docSnap.data(), id: docSnap.id };
-  } else {
-    console.log("No such document!");
   }
+  throw new Error("Producto no encontrado");
 };
-// export const getProductById = async (id) => {
-// try {
-//   const res = await fetch(`${API_URL}/${id}`);
-//   const data = await res.json();
-//   console.log("getProductById →", data);
-//   return data;
-// } catch (err) {
-//   console.error("Error en getProductById:", err);
-//   return null;
-// }
-// };
-
-//   try {
-//     const res = await fetch(API_URL);
-//     const data = await res.json();
-
-//     console.log("getProducts response:", data);
-
-//     return Array.isArray(data) ? data : [];
-//   } catch (err) {
-//     console.error("Error en getProducts:", err);
-//     return [];
-//   }
-
-//   try {
-//     const res = await fetch(`${API_URL}?category=${category}`);
-//     const data = await res.json();
-
-//     console.log("getProductsByCategory response:", data);
-
-//     return Array.isArray(data) ? data : [];
-//   } catch (err) {
-//     console.error("Error en getProductsByCategory:", err);
-//     return [];
-//   }

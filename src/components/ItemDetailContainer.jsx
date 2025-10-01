@@ -4,7 +4,7 @@ import { getProductById } from "../firebase/db";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
-  const [products, setProduct] = useState(null);
+  const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
@@ -47,7 +47,7 @@ function ItemDetailContainer() {
     );
   }
 
-  return <ItemDetail products={products} />;
+  return <ItemDetail product={product} />;
 }
 
 export default ItemDetailContainer;

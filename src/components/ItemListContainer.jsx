@@ -4,18 +4,12 @@ import { getProducts, getProductsByCategory } from "../firebase/db";
 import ItemList from "./ItemList";
 
 function ItemListContainer({ greeting = "Bienvenido a Tabaquería Rodriguez" }) {
-  const [products, setProducts] = useState([]);
+  const [product, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { category } = useParams();
 
   useEffect(() => {
-    //   if (category) {
-    //     getProductsByCategory(category).then((data) => setProducts(data));
-    //   } else {
-    //     getProducts().then((data) => setProducts(data));
-    //   }
-    // }, [category]);
     const fetchProducts = async () => {
       try {
         setLoading(true);
@@ -61,7 +55,7 @@ function ItemListContainer({ greeting = "Bienvenido a Tabaquería Rodriguez" }) 
   return (
     <div className="item-list-container">
       <h2 className="greeting">{greeting}</h2>
-      <ItemList products={products} />
+      <ItemList product={product} />
     </div>
   );
 }
