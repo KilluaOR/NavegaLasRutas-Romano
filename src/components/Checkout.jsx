@@ -1,5 +1,38 @@
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
+export function CheckoutForm() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const name = form.name.value;
+  };
+  return (
+    <Form className="w-50" onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="email">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" requiered />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="name">
+        <Form.Label>Name</Form.Label>
+        <Form.Control type="text" placeholder="Natalia Romero" requiered />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="checkbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Finalizar compra
+      </Button>
+    </Form>
+  );
+}
 
 function Checkout() {
   const { cart, clearCart, getSubtotal } = useCart();
@@ -19,29 +52,30 @@ function Checkout() {
         {cart.length === 0 ? (
           <p className="text-white text-center py-4">Tu carrito está vacío</p>
         ) : (
-          cart.map((item) => (
+          cart.map((product) => (
             <div
-              key={item.id}
+              key={product?.id}
               className="flex items-center justify-between p-4 border-b border-gray-700"
             >
               <div className="flex items-center space-x-4">
                 <img
-                  src={item.image}
-                  alt={item.name}
+                  src={product?.image}
+                  alt={product?.name}
                   className="w-16 h-20 object-cover rounded"
                 />
                 <div>
-                  <h3 className="text-white font-medium">{item.name}</h3>
+                  <h3 className="text-white font-medium">{product?.name}</h3>
                   <p className="text-gray-400 text-sm">
-                    Cantidad: {item.quantity}
+                    Cantidad: {product?.quantity}
                   </p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-white">Precio del item: ${item.price}</p>
+                <p className="text-white">Precio del item: ${product?.price}</p>
                 <p className="text-gray-400 text-sm">
                   Total: $
-                  {parseInt(item.price.replace(/[^0-9]/g, "")) * item.quantity}
+                  {parseInt(product?.price.replace(/[^0-9]/g, "")) *
+                    product.quantity}
                 </p>
               </div>
             </div>
