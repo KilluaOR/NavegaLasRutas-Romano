@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts } from "../firebase/db";
+import { getProductById } from "../firebase/db";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
-  const [product, setProduct] = useState(null);
+  const [products, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
@@ -14,7 +14,7 @@ function ItemDetailContainer() {
       try {
         setLoading(true);
         setError(null);
-        const productData = await getProducts(id);
+        const productData = await getProductById(id);
         setProduct(productData);
       } catch (err) {
         setError(err.message);
@@ -47,7 +47,7 @@ function ItemDetailContainer() {
     );
   }
 
-  return <ItemDetail product={product} />;
+  return <ItemDetail products={products} />;
 }
 
 export default ItemDetailContainer;

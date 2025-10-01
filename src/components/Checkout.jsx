@@ -4,7 +4,6 @@ import { useState } from "react";
 function Checkout() {
   const { cart, clearCart, getSubtotal } = useCart();
   const [thankYou, setThankYou] = useState(false);
-
   const subtotal = getSubtotal();
   const total = subtotal;
 
