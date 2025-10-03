@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { useParams } from "react-router-dom";
 import { getProducts, getProductsByCategory } from "../firebase/db";
 import ItemList from "./ItemList";
@@ -8,6 +9,7 @@ function ItemListContainer({ greeting = "Bienvenido a Tabaquería Rodriguez" }) 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { category } = useParams();
+  const { addItem } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
