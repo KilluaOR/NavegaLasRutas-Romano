@@ -22,6 +22,7 @@ export const getProducts = async () => {
   });
   return products;
 };
+
 export const getCategories = async () => {
   const querySnapshot = await getDocs(collection(db, "categories"));
   const categories = [];
@@ -59,10 +60,10 @@ export const getProductById = async (id) => {
 export const createOrder = async (order) => {
   try {
     const docRef = await addDoc(collection(db, "orders"), order);
-    toast.succes("Gracias por tu compra, el ID de tu orden es: ${docRef.id}");
+    toast.success(`Gracias por tu compra, el ID de tu orden es: ${docRef.id}`);
     return true;
   } catch (error) {
-    toast.error("Ocurrió un error: ${error.code}");
+    toast.error(`Ocurrió un error: ${error.code}`);
     return false;
   }
 };
