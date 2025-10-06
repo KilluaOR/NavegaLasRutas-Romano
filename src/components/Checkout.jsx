@@ -2,7 +2,7 @@ import { useCart } from "../context/CartContext";
 import { serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { createOrder } from "../firebase/db";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 

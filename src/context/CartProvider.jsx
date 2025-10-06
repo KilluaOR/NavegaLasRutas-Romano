@@ -34,12 +34,18 @@ export const CartProvider = ({ children }) => {
   };
 
   const getSubtotal = () => {
-    const parsePrice = (priceString) =>
-      parseInt(priceString.replace(/[^0-9]/g, ""));
-    return cart.reduce(
-      (total, item) => total + parsePrice(item.price) * item.quantity,
-      0
-    );
+    const normalizePrice = (price) => {
+      if (typeof price === "number") return price;
+      if (typeof price === "string") {
+        const numeric = Number(price.replace(/[^0-9.]/g, ""));
+        return isNaN(numeric) ? 0 : numeric;
+      }
+      return 0;
+    };
+    return cart.reduce((total, item) => {
+      const price = normalizePrice(item.price);
+      return total + price * (item.quantity || 0);
+    }, 0);
   };
 
   return (

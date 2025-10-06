@@ -19,42 +19,44 @@ function CartContainer() {
   return (
     <div className="p-4">
       <ul className="space-y-3">
-        {cart.map((item) => (
-          <li
-            key={item.id}
-            className="flex items-center justify-between border-b border-gray-700 pb-3"
-          >
-            <div className="flex items-center gap-3">
-              {item.image && (
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-12 h-16 object-cover rounded"
-                />
-              )}
-              <div>
-                <p className="text-white font-medium">{item.name}</p>
-                <p className="text-gray-400 text-sm">
-                  Cantidad: {item.quantity}
-                </p>
+        {cart.map((item) => {
+          const price = Number(item.price);
+          const total = price * item.quantity;
+          return (
+            <li
+              key={item.id}
+              className="flex items-center justify-between border-b border-gray-700 pb-3"
+            >
+              <div className="flex items-center gap-3">
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-12 h-16 object-cover rounded"
+                  />
+                )}
+                <div>
+                  <p className="text-white font-medium">{item.name}</p>
+                  <p className="text-gray-400 text-sm">
+                    Cantidad: {item.quantity}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="text-right">
-              <p className="text-white">Precio: ${item.price}</p>
-              <p className="text-gray-400 text-sm">
-                Total: $
-                {parseInt(String(item.price).replace(/[^0-9]/g, "")) *
-                  item.quantity}
-              </p>
-              <button
-                className="mt-2 bg-red-600 px-3 py-1 rounded text-white"
-                onClick={() => removeItem(item.id)}
-              >
-                Eliminar
-              </button>
-            </div>
-          </li>
-        ))}
+              <div className="text-right">
+                <p className="text-white">Precio: ${price.toLocaleString()}</p>
+                <p className="text-gray-400 text-sm">
+                  Total: ${total.toLocaleString()}
+                </p>
+                <button
+                  className="mt-2 bg-red-600 px-3 py-1 rounded text-white"
+                  onClick={() => removeItem(item.id)}
+                >
+                  Eliminar
+                </button>
+              </div>
+            </li>
+          );
+        })}
       </ul>
 
       <div className="mt-4 flex items-center justify-between">

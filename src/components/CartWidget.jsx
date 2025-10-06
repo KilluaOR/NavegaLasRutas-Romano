@@ -8,7 +8,7 @@ function CartWidget() {
 
   return (
     <div className="nav-cart relative">
-      <Link to="/checkout" className="relative">
+      <Link to="/cart" className="relative">
         <svg
           width="20"
           height="20"

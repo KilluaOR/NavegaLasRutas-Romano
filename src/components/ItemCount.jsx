@@ -3,16 +3,16 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
-function ItemCount({ products }) {
+function ItemCount({ product }) {
   const [count, setCount] = useState(1);
   const { addItem } = useCart();
   const handleAdd = () => setCount((c) => c + 1);
   const handleSub = () => setCount((c) => (c > 1 ? c - 1 : 1));
 
   const handleAddToCart = () => {
-    if (!products) return;
+    if (!product) return;
     addItem({
-      ...products,
+      ...product,
       quantity: count,
     });
   };

@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { CheckoutForm } from "./components/Checkout";
+import CartContainer from "./components/CartContainer";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/item/:id" element={<ItemDetailContainer />} />
             <Route path="/items/:id" element={<ItemDetailContainer />} />
 
+            <Route path="/cart" element={<CartContainer />} />
             <Route path="/checkout" element={<CheckoutForm />} />
           </Routes>
         </main>
