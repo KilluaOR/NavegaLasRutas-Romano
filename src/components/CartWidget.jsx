@@ -7,8 +7,8 @@ function CartWidget() {
   const itemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="nav-cart relative">
-      <Link to="/cart" className="relative">
+    <div className="cart-widget">
+      <Link to="/cart" className="cart-widget-link">
         <svg
           width="20"
           height="20"
@@ -24,9 +24,7 @@ function CartWidget() {
           />
         </svg>
         {itemCount > 0 && (
-          <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-2">
-            {itemCount}
-          </span>
+          <span className="cart-widget-badge">{itemCount}</span>
         )}
       </Link>
     </div>

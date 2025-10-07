@@ -1,0 +1,118 @@
+.checkout-container {
+  min-height: calc(100vh - 140px);
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-form {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.checkout-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.checkout-form .form-label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.checkout-form .form-control {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checkout-form .form-control:focus {
+  border-color: #9d2497;
+  box-shadow: 0 0 0 0.2rem rgba(157, 36, 151, 0.25);
+}
+
+.checkout-form .form-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+.checkout-form .btn-primary {
+  background-color: #9d2497;
+  border-color: #9d2497;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 1rem;
+  width: 100%;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkout-form .btn-primary:hover {
+  background-color: #7a1d75;
+  border-color: #7a1d75;
+}
+
+.checkout-form .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(157, 36, 151, 0.25);
+}
+
+.checkout-form .form-check-input:checked {
+  background-color: #9d2497;
+  border-color: #9d2497;
+}
+
+.checkout-form .form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(157, 36, 151, 0.25);
+}
+
+.checkout-form .form-check-label {
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.empty-cart-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.empty-cart-message h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .btn {
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .checkout-container {
+    padding: 20px 15px;
+  }
+
+  .checkout-form {
+    padding: 30px 20px;
+  }
+
+  .checkout-title {
+    font-size: 1.5rem;
+  }
+}

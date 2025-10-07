@@ -15,11 +15,10 @@
 }
 
 .main-content {
-  padding-bottom: 100px; /* Space for fixed bottom navbar */
+  padding-bottom: 100px;
   min-height: calc(100vh - 100px);
 }
 
-/* Loading and Error States */
 .loading-container,
 .error-container {
   display: flex;
@@ -54,7 +53,6 @@
   }
 }
 
-/* Item List Container */
 .item-list-container {
   padding: 20px;
   max-width: 1200px;
@@ -73,7 +71,6 @@
   font-size: 2rem;
 }
 
-/* Item List */
 .item-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -81,7 +78,6 @@
   padding: 20px 0;
 }
 
-/* Item Card */
 .item-card {
   background: white;
   border-radius: 8px;
@@ -137,7 +133,6 @@
   gap: 10px;
 }
 
-/* Buttons */
 .btn {
   padding: 10px 20px;
   border: none;
@@ -168,7 +163,6 @@
   background-color: #545b62;
 }
 
-/* Item Detail */
 .item-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -259,20 +253,17 @@
   font-size: 1.1rem;
 }
 
-/* Import Poppins font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-/* Hide scrollbars but keep functionality */
 * {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 *::-webkit-scrollbar {
-  display: none; /* WebKit */
+  display: none;
 }
 
-/* Navbar link hover effects */
 .nav-link {
   transition: background-color 0.2s ease;
   background-color: transparent;
@@ -282,7 +273,6 @@
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .item-detail {
     grid-template-columns: 1fr;
