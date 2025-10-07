@@ -4,6 +4,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { CheckoutForm } from "./components/Checkout";
 import CartContainer from "./components/CartContainer";
+import { Toaster } from "react-hot-toast";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/checkout" element={<CheckoutForm />} />
           </Routes>
         </main>
+        <Toaster position="top-right" />
       </div>
     </HashRouter>
   );
