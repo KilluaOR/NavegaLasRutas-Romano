@@ -106,7 +106,7 @@ src/
 ```bash
 # Clonar el repositorio
 git clone <tu-repositorio>
-cd NavegaLasRutas+Romano
+cd ProyectoFinal+Romano
 
 # Instalar dependencias
 pnpm install
