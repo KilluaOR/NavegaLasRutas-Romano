@@ -24,9 +24,6 @@ function ItemDetail({ product }) {
         <p className="item-detail-description">{product?.description}</p>
         <div className="item-detail-info">
           <p>
-            <strong>Stock disponible:</strong> {product?.stock} unidades
-          </p>
-          <p>
             <strong>Categoría:</strong> {product?.category}
           </p>
         </div>
